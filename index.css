@@ -1,0 +1,478 @@
+:root {
+    --primary-color: #333333;
+    --gold: #d4af37;
+    --bg-color: #fcfaf8;
+    --font-heading: 'Cormorant Garamond', serif;
+    --font-text: 'Montserrat', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--primary-color);
+    font-family: var(--font-text);
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Background Particles Container */
+#particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Floating Light Particles (Gold Dust) */
+.particle {
+    position: absolute;
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.7) 0%, rgba(212, 175, 55, 0) 70%);
+    border-radius: 50%;
+    opacity: 0;
+    animation: float 10s infinite linear;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(100vh) scale(0.5);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.6;
+    }
+
+    90% {
+        opacity: 0.6;
+    }
+
+    100% {
+        transform: translateY(-10vh) scale(1.2);
+        opacity: 0;
+    }
+}
+
+/* Page Layout */
+.section {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 1;
+    padding: 2rem;
+}
+
+.content {
+    max-width: 800px;
+    width: 100%;
+}
+
+/* Typography styles */
+h1,
+h2,
+h3 {
+    font-family: var(--font-heading);
+    font-weight: 400;
+}
+
+.names {
+    font-size: 4.5rem;
+    margin: 1.5rem 0 1rem;
+    color: var(--primary-color);
+    line-height: 1.1;
+    letter-spacing: -1px;
+}
+
+.section-title {
+    font-size: 3.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--gold);
+}
+
+.quote {
+    font-size: 1.3rem;
+    font-style: italic;
+    color: #666;
+    margin-bottom: 2rem;
+    letter-spacing: 1px;
+    font-family: var(--font-heading);
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #888;
+    margin-bottom: 3rem;
+}
+
+/* Elegantly Styled Image Frame */
+.image-frame {
+    width: 250px;
+    height: 340px;
+    margin: 0 auto;
+    border-radius: 125px 125px 0 0;
+    overflow: hidden;
+    position: relative;
+    background: transparent;
+}
+
+/* Golden Border Effect around Image */
+.image-frame::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 125px 125px 0 0;
+    border: 2px solid var(--gold);
+    z-index: 2;
+    pointer-events: none;
+    margin: 5px;
+}
+
+.image-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 125px 125px 0 0;
+    padding: 10px;
+    background-color: var(--bg-color);
+}
+
+/* Celebration Details */
+.date-time {
+    margin-bottom: 3rem;
+    position: relative;
+    padding-bottom: 2rem;
+}
+
+.date-time::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 1px;
+    background-color: var(--gold);
+}
+
+.date {
+    font-size: 1.6rem;
+    margin-bottom: 0.5rem;
+    font-family: var(--font-heading);
+}
+
+.time {
+    font-size: 1.2rem;
+    color: #555;
+    font-style: italic;
+    font-family: var(--font-heading);
+}
+
+/* Glassmorphism Countdown */
+.countdown {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 3rem;
+    flex-wrap: wrap;
+}
+
+.time-box {
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    padding: 1.5rem;
+    border-radius: 12px;
+    width: 110px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.time-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(212, 175, 55, 0.1);
+}
+
+.time-box span {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 8px;
+}
+
+.time-box small {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #777;
+}
+
+/* Venue Info */
+.venue-name {
+    font-size: 2.2rem;
+    font-family: var(--font-heading);
+    margin-bottom: 1rem;
+}
+
+.venue-address {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 3.5rem;
+    font-family: var(--font-heading);
+    font-style: italic;
+}
+
+/* Elegant Button */
+.map-button {
+    display: inline-block;
+    padding: 16px 45px;
+    background-color: transparent;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-size: 0.9rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    border: 1px solid var(--primary-color);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.map-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--primary-color);
+    z-index: -1;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.map-button:hover {
+    color: #fff;
+    border-color: var(--primary-color);
+}
+
+.map-button:hover::before {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* Minimal Scroll Indicator */
+.scroll-indicator {
+    position: absolute;
+    bottom: 5vh;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0.6;
+    animation: floating 2s ease-in-out infinite;
+}
+
+.scroll-indicator p {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 12px;
+}
+
+.scroll-indicator .line {
+    width: 1px;
+    height: 50px;
+    background: linear-gradient(to bottom, var(--primary-color), transparent);
+}
+
+@keyframes floating {
+
+    0%,
+    100% {
+        transform: translate(-50%, 0);
+    }
+
+    50% {
+        transform: translate(-50%, -10px);
+    }
+}
+
+/* Intersection Observer Animations */
+.fade-in {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 1.2s cubic-bezier(0.2, 0.8, 0.2, 1), transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .section {
+        padding: 2rem 1.5rem;
+    }
+
+    .names {
+        font-size: 3.5rem;
+        margin-top: 1rem;
+    }
+
+    .section-title {
+        font-size: 2.8rem;
+    }
+
+    .countdown {
+        gap: 15px;
+    }
+
+    .time-box {
+        width: 90px;
+        padding: 1.2rem;
+    }
+
+    .time-box span {
+        font-size: 2.2rem;
+    }
+
+    .image-frame {
+        width: 200px;
+        height: 280px;
+    }
+
+    .subtitle {
+        font-size: 0.9rem;
+        letter-spacing: 2px;
+        margin-bottom: 2rem;
+    }
+
+    .map-button {
+        padding: 14px 35px;
+    }
+
+    .quote {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .section {
+        padding: 1.5rem 1rem;
+        min-height: 100svh;
+    }
+
+    .names {
+        font-size: 2.8rem;
+        line-height: 1.2;
+    }
+
+    .section-title {
+        font-size: 2.2rem;
+    }
+
+    .subtitle {
+        font-size: 0.8rem;
+        letter-spacing: 1.5px;
+        margin-bottom: 1.5rem;
+    }
+
+    .quote {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .image-frame {
+        width: 160px;
+        height: 220px;
+    }
+
+    .date {
+        font-size: 1.2rem;
+    }
+
+    .time {
+        font-size: 1rem;
+    }
+
+    .date-time {
+        margin-bottom: 2rem;
+        padding-bottom: 1.5rem;
+    }
+
+    .countdown {
+        gap: 10px;
+        margin-top: 2rem;
+    }
+
+    .time-box {
+        width: 75px;
+        padding: 0.8rem;
+        border-radius: 8px;
+    }
+
+    .time-box span {
+        font-size: 1.6rem;
+        margin-bottom: 4px;
+    }
+
+    .time-box small {
+        font-size: 0.65rem;
+        letter-spacing: 1px;
+    }
+
+    .venue-name {
+        font-size: 1.8rem;
+    }
+
+    .venue-address {
+        font-size: 0.95rem;
+        margin-bottom: 2.5rem;
+    }
+
+    .map-button {
+        padding: 12px 25px;
+        font-size: 0.8rem;
+        width: 100%;
+        max-width: 280px;
+    }
+
+    .scroll-indicator {
+        bottom: 2vh;
+    }
+
+    .scroll-indicator p {
+        font-size: 0.65rem;
+        margin-bottom: 8px;
+    }
+
+    .scroll-indicator .line {
+        height: 35px;
+    }
+}
